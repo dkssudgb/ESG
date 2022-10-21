@@ -13,7 +13,7 @@ st.set_page_config(
 
 st.markdown("# ESG 등급 분포 시각화")
 
-file_name = "data\ESG_KOSPI200_ca.csv"
+file_name = "./data/ESG_KOSPI200_ca.csv"
 
 @st.cache
 def load_data(file_path):
