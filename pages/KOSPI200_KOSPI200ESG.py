@@ -15,7 +15,8 @@ st.set_page_config(
 st.markdown("# KOSPI 200 지수와 KOSPI 200 ESG 지수 비교")
 st.sidebar.markdown("# 시각화 📊")
 
-file_names = ["data\KOSPI200.csv", "data\KOSPI200_ESG.csv", "data\KOSPI_ESG_MERGE.csv"]
+# file_names = ["data\KOSPI200.csv", "data\KOSPI200_ESG.csv", "data\KOSPI_ESG_MERGE.csv"]
+file_names = ["./data/KOSPI200.csv", "./data/KOSPI200_ESG.csv", "./data/KOSPI_ESG_MERGE.csv"]
 
 @st.cache
 def load_data(file_path):
