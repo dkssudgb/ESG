@@ -13,51 +13,53 @@ st.set_page_config(
 )
 
 st.markdown("# KOSPI 200 지수와 KOSPI 200 ESG 지수 비교")
-st.sidebar.markdown("# 시각화 📊")
 
-# file_names = ["data\KOSPI200.csv", "data\KOSPI200_ESG.csv", "data\KOSPI_ESG_MERGE.csv"]
-file_names = ["./data/KOSPI200.csv", "./data/KOSPI200_ESG.csv", "./data/KOSPI_ESG_MERGE.csv"]
+file_name = "./data/KOSPI_ESG_MERGE.csv"
 
 @st.cache
 def load_data(file_path):
     data = pd.read_csv(file_path)
     return data
 
-data_load_state = st.text('Loading data...')
-data_kospi = load_data(file_names[0])
-data_esg = load_data(file_names[1]) 
-data_merge = load_data(file_names[2])
-data_load_state.text("Done! (using st.cache)")
+data_merge = load_data(file_name)
 
-st.markdown("## KOSPI 200 지수와 KOSPI 200 ESG 지수 (2011.01.03 ~ 2022.09.30)")
-st.dataframe(data_merge)
+st.markdown("### KOSPI 200 지수와 KOSPI 200 ESG 지수의 데이터프레임")
+st.write("기간: 2011.01.03 ~ 2022.09.30")
+st.dataframe(data_merge.iloc[:, :7].fillna("해당없음"))
 
-st.markdown("## KOSPI 200 지수 (2011.01.03 ~ 2022.09.30)")
-st.dataframe(data_kospi)
+st.write("※ 2011년 이전까지는 지배구조(G) 평가만 실시해오다가 2011년부터 환경(E) 및 사회(S)부문을 추가하여 지금의 ESG평가가 수행되고 있다. ")
+st.write("2011년의 평가 등급을 통해 2012년부터 ESG 지수가 산출되었기 때문에 2011년의 ESG지수는 존재하지 않는다.")
 
-st.markdown("## KOSPI 200의 ESG 지수 (2012.01.02 ~ 2022.09.30)")
-st.dataframe(data_esg)
+tab1, tab2 = st.tabs(["종가", "거래량"])
 
-# # 종가, 거래량, 등락률 중 선택
-# standard = ["None", "종가", "거래량", "등락률"]
-# selected_standard = st.sidebar.selectbox("시각화할 column", standard) 
+with tab1:
+    st.write("\n")
+    fig_close = plt.figure(figsize=(15, 5))
+    plt.title("연도월별 종가 비교")
+    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 종가", label="KOSPI 200 종가", ci=None)
+    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 ESG 종가", label="KOSPI 200 ESG 종가", ci=None)
+    st.pyplot(fig_close)
 
-# # 기준 날짜 선택
-# v_list = ["None", "전체 날짜에 대한 시각화", "연도별 시각화", "연도-월별 시각화"]
-# selected_v = st.sidebar.selectbox("시각화 기준", v_list)
+    st.write("\n상관관계 파악")
+    fig_close = plt.figure(figsize=(15, 15))
+    plt.title("종가 비교")
+    plt.xlabel('KOSPI 200')
+    plt.ylabel('KOSPI 200 ESG')
+    plt.scatter(data_merge['KOSPI 200 종가'], data_merge['KOSPI 200 ESG 종가'])
+    st.pyplot(fig_close)
 
-# def visualize(s, v):    # selectbox 동작 함수
-#     if v == v_list[0]:
-#         pass
-#     elif v == v_list[1]:
-#         st.line_chart(data.set_index("일자")[s])
-#     elif selected_v == v_list[2]:
-#         fig = plt.figure(figsize=(20, 5))
-#         sns.lineplot(data=data, x="연도", y=s, ci=None)
-#         st.pyplot(fig)
-#     else:
-#         fig = plt.figure(figsize=(20, 5))
-#         sns.lineplot(data=data, x="연도월", y=s, ci=None)
-#         st.pyplot(fig)
-        
-# visualize(selected_standard, selected_v)
+with tab2:
+    st.write("\n")
+    fig_volume = plt.figure(figsize=(15, 5))
+    plt.title("연도월별 거래량 비교")
+    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 거래량", label="KOSPI 200 거래량", ci=None)
+    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 ESG 거래량", label="KOSPI 200 ESG 거래량", ci=None)
+    st.pyplot(fig_volume)
+
+    st.write("\n")
+    fig_volume = plt.figure(figsize=(15, 5))
+    plt.title("연도월별 거래량 비교2")
+    sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="연도월", y="KOSPI 200 거래량", label="KOSPI 200 거래량", ci=None)
+    sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="연도월", y="KOSPI 200 ESG 거래량", label="KOSPI 200 ESG 거래량", ci=None)
+    st.pyplot(fig_volume)
+
