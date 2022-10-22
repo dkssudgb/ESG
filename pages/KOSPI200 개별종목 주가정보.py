@@ -20,7 +20,7 @@ st.set_page_config(
 
 file_name = "./data\KOSPI200_ESGrate.csv"
 
-st.markdown("# KOSPI200 개별 종목 정보 조회")
+st.markdown("# KOSPI200 개별종목 주가정보")
 
 
 @st.cache(allow_output_mutation=True)

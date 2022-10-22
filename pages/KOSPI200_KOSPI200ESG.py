@@ -61,8 +61,8 @@ with tab2:
 
 
 
-'''
-['일자', 'KOSPI 200 종가', 'KOSPI 200 등락률', 'KOSPI 200 거래량',
-       'KOSPI 200 ESG 종가', 'KOSPI 200 ESG 등락률', 'KOSPI 200 ESG 거래량', '연도',
-       '연도월', '분기']
-'''
+# '''
+# ['일자', 'KOSPI 200 종가', 'KOSPI 200 등락률', 'KOSPI 200 거래량',
+#        'KOSPI 200 ESG 종가', 'KOSPI 200 ESG 등락률', 'KOSPI 200 ESG 거래량', '연도',
+#        '연도월', '분기']
+# '''
