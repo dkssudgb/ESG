@@ -25,7 +25,7 @@ data_merge = load_data(file_name)
 
 st.markdown("### KOSPI 200 지수와 KOSPI 200 ESG 지수의 데이터프레임")
 st.write("기간: 2011.01.03 ~ 2022.09.30")
-st.dataframe(data_merge.iloc[:, :7].fillna("해당없음"))
+st.dataframe(data_merge)
 
 st.write("※ 2011년 이전까지는 지배구조(G) 평가만 실시해오다가 2011년부터 환경(E) 및 사회(S)부문을 추가하여 지금의 ESG평가가 수행되고 있다. ")
 st.write("2011년의 평가 등급을 통해 2012년부터 ESG 지수가 산출되었기 때문에 2011년의 ESG지수는 존재하지 않는다.")
