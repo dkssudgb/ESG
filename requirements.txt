@@ -1,8 +1,13 @@
 pandas
 numpy
-streamlit
-finance-datareader
+matplotlib
+
 plotly
 seaborn
-matplotlib
+streamlit
+
+finance-datareader
 koreanize_matplotlib
+
+glob
+os
