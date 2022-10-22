@@ -18,6 +18,13 @@ st.set_page_config(
     layout="wide",
 )
 
-file_name = "./data\KOSPI200_ESGrate.csv"
+file_name = "./data\finaStatInfo.csv.csv"
+@st.cache(allow_output_mutation=True)
+def load_data(file_path):
+    df = pd.read_csv(file_path)
+    df["종목코드"] = df["종목코드"].astype(str).apply(lambda x: x.zfill(6))
+    return df
+df = load_data(file_name)
 
 st.markdown("# KOSPI200 개별 종목 정보 조회")
+st.dataframe()
