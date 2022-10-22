@@ -24,6 +24,10 @@ data_merge = load_data(file_name)
 
 st.markdown("### KOSPI 200 지수와 KOSPI 200 ESG 지수의 데이터프레임")
 st.write("기간: 2011.01.03 ~ 2022.09.30")
+
+data_merge["KOSPI 200 종가"] = data_merge["KOSPI 200 종가"].astype(int)
+data_merge["KOSPI 200 거래량"] = data_merge["KOSPI 200 거래량"].astype(int)
+
 st.dataframe(data_merge.iloc[:, :7].fillna("해당없음"))
 # st.dataframe(data_merge)
 
