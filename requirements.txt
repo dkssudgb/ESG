@@ -11,5 +11,3 @@ koreanize_matplotlib
 
 os
 glob
-pyarrow
-fastparquet
