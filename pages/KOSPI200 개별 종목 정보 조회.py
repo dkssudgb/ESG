@@ -21,6 +21,7 @@ st.markdown("## KOSPI 200 지수와 KOSPI 200 ESG 지수의 데이터프레임")
 def load_data(file_path):
     data = pd.read_csv(file_path)
     return data
+data_merge = load_data(file_name)
 
 option = st.selectbox(
     '종목 선택',
