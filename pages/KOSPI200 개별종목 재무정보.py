@@ -27,4 +27,4 @@ def load_data(file_path):
 df = load_data(file_name)
 
 st.markdown("# KOSPI200 개별 종목 정보 조회")
-st.dataframe()
+st.dataframe(df)
