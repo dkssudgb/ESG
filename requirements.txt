@@ -9,5 +9,7 @@ streamlit
 finance-datareader
 koreanize_matplotlib
 
-glob
 os
+glob
+pyarrow
+fastparquet
