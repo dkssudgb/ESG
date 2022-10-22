@@ -59,3 +59,10 @@ with tab2:
     sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="연도월", y="KOSPI 200 ESG 거래량", label="KOSPI 200 ESG 거래량", ci=None)
     st.pyplot(fig_volume)
 
+
+
+'''
+['일자', 'KOSPI 200 종가', 'KOSPI 200 등락률', 'KOSPI 200 거래량',
+       'KOSPI 200 ESG 종가', 'KOSPI 200 ESG 등락률', 'KOSPI 200 ESG 거래량', '연도',
+       '연도월', '분기']
+'''
