@@ -1,5 +1,4 @@
 # import module ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
-from unicodedata import category
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -30,7 +29,6 @@ def load_data(file_path):
     df["종목코드"] = df["종목코드"].astype(str).apply(lambda x: x.zfill(6))
     df[['종가', '시가', '고가', '저가', '거래량']] = df[['종가', '시가', '고가', '저가', '거래량']].astype("uint64")
     df["등락률"] = df["등락률"].apply(lambda x: round(x, 1))
-    df.info()
     return df
 df = load_data(file_name)
 col1, col2 = st.columns(2)
@@ -45,6 +43,7 @@ with col2:
     options_list_22 = ["종가", "등락률", "거래량","ESG_종합"]
     options2 = st.multiselect('COLUMN', options_list_21, options_list_22)
 
+
 dict_agg = {'일자': "count", "연도": "count", "연도월": "count", '종목코드': "count", '종목명': "count", 
             '종가': 'mean', '시가': 'mean', '고가': 'mean', '저가': 'mean', '등락률': 'mean', '거래량': 'mean', 
             'ESG_종합': lambda x:x.mode(), 'ESG_환경': lambda x:x.mode(), 'ESG_사회': lambda x:x.mode(), 'ESG_지배구조': lambda x:x.mode()}
@@ -58,8 +57,6 @@ def fn(dict):
 
 df = df.groupby(options1)[options2].aggregate(fn(dict_agg))
 st.dataframe(df)
-
-
 
 # columns
 # ['일자', '종목코드', '종목명', '종가', '시가', '고가', '저가', '등락률', '거래량', 'ESG_종합',
