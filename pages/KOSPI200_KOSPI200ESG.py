@@ -36,8 +36,8 @@ with tab1:
     st.write("\n")
     fig_close = plt.figure(figsize=(15, 5))
     plt.title("연도월별 종가 비교")
-    sns.lineplot(data=data_merge, x="연도", y="KOSPI 200 종가", label="KOSPI 200 종가", ci=None)
-    sns.lineplot(data=data_merge, x="연도", y="KOSPI 200 ESG 종가", label="KOSPI 200 ESG 종가", ci=None)
+    sns.lineplot(data=data_merge, x="일자", y="KOSPI 200 종가", label="KOSPI 200 종가", ci=None)
+    sns.lineplot(data=data_merge, x="일자", y="KOSPI 200 ESG 종가", label="KOSPI 200 ESG 종가", ci=None)
     st.pyplot(fig_close)
 
     st.write("\n상관관계 파악")
@@ -59,7 +59,7 @@ with tab2:
     st.write("\n")
     fig_volume = plt.figure(figsize=(15, 5))
     plt.title("연도월별 거래량 비교2")
-    sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="연도월", y="KOSPI 200 거래량", label="KOSPI 200 거래량", ci=None)
+    sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="일자", y="KOSPI 200 거래량", label="KOSPI 200 거래량", ci=None)
     sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="연도월", y="KOSPI 200 ESG 거래량", label="KOSPI 200 ESG 거래량", ci=None)
     st.pyplot(fig_volume)
 
