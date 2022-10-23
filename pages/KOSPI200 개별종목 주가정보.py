@@ -7,9 +7,7 @@ import plotly.express as px
 import seaborn as sns
 import streamlit as st
 
-import koreanize_matplotlib
-
-from glob import glob
+# import koreanize_matplotlib
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
 st.set_page_config(
@@ -44,7 +42,7 @@ with col2:
     options2 = st.multiselect('COLUMN', options_list_21, options_list_22)
 
 
-dict_agg = {'일자': "count", "연도": "count", "연도월": "count", '종목코드': "count", '종목명': "count", 
+dict_agg = {'일자': "count", "연도": "count", "연도월": "count", '종목코드': lambda x:x.mode(), '종목명': lambda x:x.mode(), 
             '종가': lambda x: np.mean(x), '시가': 'mean', '고가': 'mean', '저가': 'mean', '등락률': 'mean', '거래량': np.sum, 
             'ESG_종합': lambda x:x.mode(), 'ESG_환경': lambda x:x.mode(), 'ESG_사회': lambda x:x.mode(), 'ESG_지배구조': lambda x:x.mode()}
 
@@ -63,3 +61,4 @@ st.dataframe(df)
 #        'ESG_환경', 'ESG_사회', 'ESG_지배구조', 'ESG_종합_num', 'ESG_환경_num',
 #        'ESG_사회_num', 'ESG_지배구조_num', '연도월', '연도']
 
+# fig = px.

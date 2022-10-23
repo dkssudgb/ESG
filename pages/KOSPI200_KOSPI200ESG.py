@@ -1,4 +1,4 @@
-import koreanize_matplotlib
+# import koreanize_matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np

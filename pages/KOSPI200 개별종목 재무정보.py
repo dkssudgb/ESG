@@ -7,9 +7,7 @@ import plotly.express as px
 import seaborn as sns
 import streamlit as st
 
-import koreanize_matplotlib
-
-from glob import glob
+# import koreanize_matplotlib
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
 st.set_page_config(
