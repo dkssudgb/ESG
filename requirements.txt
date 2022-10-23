@@ -8,6 +8,4 @@ streamlit
 
 finance-datareader
 koreanize_matplotlib
-
-os
 glob
