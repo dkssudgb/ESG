@@ -75,7 +75,7 @@ def draw_group_barchart(df,main_category,sub_category,fig_width=10,fig_height=5,
                     color=colors[i]) ## 수직 바 차트 생성
 #         plt.legend() ## 범례 생성
         plt.legend(bbox_to_anchor=(1, 1))
-        plt.savefig('fig03.png',format='png',dpi=300)
+        plt.savefig('./fig/fig03.png',format='png',dpi=300)
         st.pyplot(fig)
     else: ## 수평 바 차트를 그린다.
         plt.yticks(**config_tick) ## x축 눈금 라벨 생성
