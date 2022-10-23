@@ -16,7 +16,7 @@ st.set_page_config(
     layout="wide",
 )
 
-file_name = r"./data\KOSPI200_ESGrate.csv"
+file_name = r"./data/KOSPI200_ESGrate.csv"
 
 st.markdown("# KOSPI200 개별종목 주가정보")
 

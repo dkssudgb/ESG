@@ -16,7 +16,7 @@ st.set_page_config(
     layout="wide",
 )
 
-file_path = r"./data\finaStatInfo.csv.csv"
+file_path = r"./data/finaStatInfo.csv.csv"
 @st.cache(allow_output_mutation=True)
 def load_data(file_path):
     df = pd.read_csv(file_path)
