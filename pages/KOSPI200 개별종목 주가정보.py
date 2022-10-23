@@ -16,7 +16,7 @@ st.set_page_config(
     layout="wide",
 )
 
-file_name = r"./data/KOSPI200_ESGrate.csv"
+file_name = r"./data/KOSPI200_ESGrate_light.csv"
 
 st.markdown("# KOSPI200 개별종목 주가정보")
 
@@ -25,19 +25,19 @@ st.markdown("# KOSPI200 개별종목 주가정보")
 def load_data(file_path):
     df = pd.read_csv(file_path)
     df["종목코드"] = df["종목코드"].astype(str).apply(lambda x: x.zfill(6))
-    df[['종가', '시가', '고가', '저가', '거래량']] = df[['종가', '시가', '고가', '저가', '거래량']].astype("uint64")
+    df[['종가', '거래량']] = df[['종가', '거래량']].astype("uint64")
     df["등락률"] = df["등락률"].apply(lambda x: round(x, 1))
     return df
 df = load_data(file_name)
 col1, col2 = st.columns(2)
 
 with col1:
-    options_list_11 = ['일자', "연도", "연도월", '종목코드', '종목명', 'ESG_종합', 'ESG_환경', 'ESG_사회', 'ESG_지배구조']
+    options_list_11 = ['일자', "연도", "연도월", '종목코드', '종목명', 'ESG_종합']
     options_list_12 = ["종목코드","종목명","일자"]
     options1 = st.multiselect('INDEX', options_list_11, options_list_12)
 
 with col2:
-    options_list_21 = ['일자', "연도", "연도월", '종목코드', '종목명', '종가', '시가', '고가', '저가', '등락률', '거래량', 'ESG_종합', 'ESG_환경', 'ESG_사회', 'ESG_지배구조']
+    options_list_21 = ['일자', "연도", "연도월", '종목코드', '종목명', '종가', '등락률', '거래량', 'ESG_종합']
     options_list_22 = ["종가", "등락률", "거래량","ESG_종합"]
     options2 = st.multiselect('COLUMN', options_list_21, options_list_22)
 
@@ -46,14 +46,16 @@ dict_agg = {'일자': "count", "연도": "count", "연도월": "count", '종목�
             '종가': lambda x: np.mean(x), '시가': 'mean', '고가': 'mean', '저가': 'mean', '등락률': 'mean', '거래량': np.sum, 
             'ESG_종합': lambda x:x.mode(), 'ESG_환경': lambda x:x.mode(), 'ESG_사회': lambda x:x.mode(), 'ESG_지배구조': lambda x:x.mode()}
 
-def fn(dict):
+def groupby_aggregate(dict_agg: dict, list_key: list):
+    if list_key == []:
+        list_key = dict_agg.key()
     tmp = {}
     for k, v in dict_agg.items():
-        if k in options2:
+        if k in list_key:
             tmp[k] = v
     return tmp
 
-df = df.groupby(options1)[options2].aggregate(fn(dict_agg))
+df = df.groupby(options1)[options2].aggregate(groupby_aggregate(dict_agg))
 st.dataframe(df)
 
 # columns
