@@ -1,4 +1,4 @@
-# import module ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+# import module ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,7 +8,25 @@ import seaborn as sns
 import streamlit as st
 
 # import koreanize_matplotlib
-# ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----    ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+dict_agg = {'일자': "count", "연도": "count", "연도월": "count", '종목코드': lambda x:x.mode(), '종목명': lambda x:x.mode(), 
+            '종가': lambda x: np.mean(x), '시가': 'mean', '고가': 'mean', '저가': 'mean', '등락률': 'mean', '거래량': np.sum, 
+            'ESG_종합': lambda x:x.mode(), 'ESG_환경': lambda x:x.mode(), 'ESG_사회': lambda x:x.mode(), 'ESG_지배구조': lambda x:x.mode()}
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----    ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+def groupby_aggregate(dict_agg: dict, list_key: list = []):
+    
+    if list_key == []:
+        list_key = dict_agg.key()
+        
+    tmp = {}
+    for k, v in dict_agg.items():
+        if k in list_key:
+            tmp[k] = v
+            
+    return tmp
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----     ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----     ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----     ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
 st.set_page_config(
     page_title="Likelion AI School Midproject Team13",
@@ -42,20 +60,8 @@ with col2:
     options2 = st.multiselect('COLUMN', options_list_21, options_list_22)
 
 
-dict_agg = {'일자': "count", "연도": "count", "연도월": "count", '종목코드': lambda x:x.mode(), '종목명': lambda x:x.mode(), 
-            '종가': lambda x: np.mean(x), '시가': 'mean', '고가': 'mean', '저가': 'mean', '등락률': 'mean', '거래량': np.sum, 
-            'ESG_종합': lambda x:x.mode(), 'ESG_환경': lambda x:x.mode(), 'ESG_사회': lambda x:x.mode(), 'ESG_지배구조': lambda x:x.mode()}
 
-def groupby_aggregate(dict_agg: dict, list_key: list):
-    if list_key == []:
-        list_key = dict_agg.key()
-    tmp = {}
-    for k, v in dict_agg.items():
-        if k in list_key:
-            tmp[k] = v
-    return tmp
-
-df = df.groupby(options1)[options2].aggregate(groupby_aggregate(dict_agg))
+df = df.groupby(options1)[options2].aggregate(groupby_aggregate(dict_agg,options_list_22))
 st.dataframe(df)
 
 # columns
