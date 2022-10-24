@@ -23,7 +23,7 @@ def load_data(file_path):
     return data
 
 data = load_data(file_name)
-data["종목코드"] = data["종목코드"].str.zfill(6)
+data["종목코드"] = data["종목코드"].apply(lambda x: x.zfill(6))
 data.fillna({"ESG등급":"없음", "환경": "없음", "사회":"없음", "지배구조":"없음"})
 st.markdown("## 종목별 ESG 등급")
 st.dataframe(data)
