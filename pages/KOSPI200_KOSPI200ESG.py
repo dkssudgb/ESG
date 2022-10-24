@@ -19,7 +19,6 @@ file_name = "./data/KOSPI_ESG_MERGE.csv"
 def load_data(file_path):
     data = pd.read_csv(file_path)
     return data
-
 data_merge = load_data(file_name)
 
 st.markdown("### KOSPI 200 지수와 KOSPI 200 ESG 지수의 데이터프레임")
