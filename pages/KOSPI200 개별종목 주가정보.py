@@ -59,8 +59,7 @@ with col2:
     options_list_22 = ["종가", "등락률", "거래량","ESG_종합"]
     options2 = st.multiselect('COLUMN', options_list_21, options_list_22)
 
-
-
+st.markdown("")
 df = df.groupby(options1)[options2].aggregate(groupby_aggregate(dict_agg,options_list_22))
 st.dataframe(df)
 
