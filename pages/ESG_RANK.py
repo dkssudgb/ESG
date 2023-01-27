@@ -25,7 +25,8 @@ def load_data(file_path):
 data = load_data(file_name)
 
 st.markdown("## 종목별 ESG 등급")
-st.dataframe(data.fillna({"ESG등급":"없음", "환경": "없음", "사회":"없음", "지배구조":"없음"}))
+st.markdown("sample(10)")
+st.dataframe(data.fillna({"ESG등급":"없음", "환경": "없음", "사회":"없음", "지배구조":"없음"}).sample(10))
 
 st.markdown("## 시각화")
 
