@@ -39,9 +39,10 @@ with tab1:
     sns.lineplot(data=data_merge[1969:], x="연도월", y="KOSPI 200 ESG 종가", label="KOSPI 200 ESG 종가", ci=None)
     st.pyplot(fig_close)
     
-    st.write("※ 2012년 1월 2일을 기준으로 코스피 200 지수 유니버스에 적용하여 2018년 12월 24일부터 지수가 산출되었다.")
+    st.markdown("##### ※ 2012년 1월 2일을 기준으로 코스피 200 지수 유니버스에 적용하여 2018년 12월 24일부터 지수가 산출되었다.")
+    st.markdown("")
+    st.markdown("")
     
-    st.write("\n")
     fig_close = plt.figure(figsize=(15, 5))
     plt.title("연도월별 종가 비교 (2011년~)")
     sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 종가", label="KOSPI 200 종가", ci=None)
