@@ -13,7 +13,7 @@ st.set_page_config(
     layout="wide",
 )
 
-st.markdown("# ESG 등급 분포 시각화")
+st.title("ESG 등급 분포 시각화")
 
 file_name = "./data/ESG_KOSPI200_ca.csv"
 
@@ -130,4 +130,4 @@ with g:
     draw_group_barchart(df_g,main_category,sub_category,\
                             bar_type='vertical', between_bar_padding=0.85,\
                             within_bar_padding=0.9, config_bar = None)
-    
+
