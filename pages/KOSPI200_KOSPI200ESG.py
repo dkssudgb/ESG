@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide",
 )
 
-st.markdown("# KOSPI 200 지수와 KOSPI 200 ESG 지수 비교")
+st.title("KOSPI 200 지수와 KOSPI 200 ESG 지수 비교")
 file_name = "./data/KOSPI_ESG_MERGE.csv"
 
 @st.cache
@@ -35,17 +35,18 @@ with tab1:
     st.write("\n")
     fig_close = plt.figure(figsize=(15, 5))
     plt.title("연도월별 종가 비교 (2019년~)")
-    sns.lineplot(data=data_merge[1969:], x="연도월", y="KOSPI 200 종가", label="KOSPI 200 종가", errorbar=None)
-    sns.lineplot(data=data_merge[1969:], x="연도월", y="KOSPI 200 ESG 종가", label="KOSPI 200 ESG 종가", errorbar=None)
+    sns.lineplot(data=data_merge[1969:], x="연도월", y="KOSPI 200 종가", label="KOSPI 200 종가", ci=None)
+    sns.lineplot(data=data_merge[1969:], x="연도월", y="KOSPI 200 ESG 종가", label="KOSPI 200 ESG 종가", ci=None)
     st.pyplot(fig_close)
     
-    st.write("※ 2012년 1월 2일을 기준으로 코스피 200 지수 유니버스에 적용하여 2018년 12월 24일부터 지수가 산출되었다.")
+    st.markdown("##### ※ 2012년 1월 2일을 기준으로 코스피 200 지수 유니버스에 적용하여 2018년 12월 24일부터 지수가 산출되었다.")
+    st.markdown("")
+    st.markdown("")
     
-    st.write("\n")
     fig_close = plt.figure(figsize=(15, 5))
     plt.title("연도월별 종가 비교 (2011년~)")
-    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 종가", label="KOSPI 200 종가", errorbar=None)
-    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 ESG 종가", label="KOSPI 200 ESG 종가", errorbar=None)
+    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 종가", label="KOSPI 200 종가", ci=None)
+    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 ESG 종가", label="KOSPI 200 ESG 종가", ci=None)
     st.pyplot(fig_close)
     
 with tab2:
@@ -61,29 +62,29 @@ with tab2:
     st.write("\n")
     fig_change = plt.figure(figsize=(25, 5))
     plt.title("연도월별 등락률 비교 (2019년~)")
-    sns.lineplot(data=df_norm[1969:], x="연도월", y="코스피 등락률 정규화", label="KOSPI 200 등락률", errorbar=None)
-    sns.lineplot(data=df_norm[1969:], x="연도월", y="ESG 등락률 정규화", label="KOSPI 200 ESG 등락률", errorbar=None)
+    sns.lineplot(data=df_norm[1969:], x="연도월", y="코스피 등락률 정규화", label="KOSPI 200 등락률", ci=None)
+    sns.lineplot(data=df_norm[1969:], x="연도월", y="ESG 등락률 정규화", label="KOSPI 200 ESG 등락률", ci=None)
     st.pyplot(fig_change)
     
     st.write("\n")
     fig_change = plt.figure(figsize=(25, 5))
     plt.title("연도월별 등락률 비교 (2011년~)")
-    sns.lineplot(data=df_norm, x="연도월", y="코스피 등락률 정규화", label="KOSPI 200 등락률", errorbar=None)
-    sns.lineplot(data=df_norm, x="연도월", y="ESG 등락률 정규화", label="KOSPI 200 ESG 등락률", errorbar=None)
+    sns.lineplot(data=df_norm, x="연도월", y="코스피 등락률 정규화", label="KOSPI 200 등락률", ci=None)
+    sns.lineplot(data=df_norm, x="연도월", y="ESG 등락률 정규화", label="KOSPI 200 ESG 등락률", ci=None)
     st.pyplot(fig_change)
 
 with tab3:
     st.write("\n")
     fig_volume = plt.figure(figsize=(15, 5))
     plt.title("연도월별 거래량 비교 (2018년~)")
-    sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="연도월", y="KOSPI 200 거래량", label="KOSPI 200 거래량", errorbar=None)
-    sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="연도월", y="KOSPI 200 ESG 거래량", label="KOSPI 200 ESG 거래량", errorbar=None)
+    sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="연도월", y="KOSPI 200 거래량", label="KOSPI 200 거래량", ci=None)
+    sns.lineplot(data=data_merge[data_merge["연도"] >= 2018], x="연도월", y="KOSPI 200 ESG 거래량", label="KOSPI 200 ESG 거래량", ci=None)
     st.pyplot(fig_volume)
     
     st.write("\n")
     fig_volume = plt.figure(figsize=(15, 5))
     plt.title("연도월별 거래량 비교 (2011년~)")
-    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 거래량", label="KOSPI 200 거래량", errorbar=None)
-    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 ESG 거래량", label="KOSPI 200 ESG 거래량", errorbar=None)
+    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 거래량", label="KOSPI 200 거래량", ci=None)
+    sns.lineplot(data=data_merge, x="연도월", y="KOSPI 200 ESG 거래량", label="KOSPI 200 ESG 거래량", ci=None)
     st.pyplot(fig_volume)
 
