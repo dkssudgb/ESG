@@ -1,6 +1,7 @@
 #
 gitig*
 /gitig*/
+*.pkl
 
 
 # Byte-compiled / optimized / DLL files
