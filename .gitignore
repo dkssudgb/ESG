@@ -1,7 +1,10 @@
 #
 gitig*
 /gitig*/
-*.pkl
+*.pickle
+*.csv
+*.parquet
+*.xls
 
 
 # Byte-compiled / optimized / DLL files
