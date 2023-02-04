@@ -1,3 +1,13 @@
+#
+gitig*
+/gitig*/
+/data/KOSPI_200
+/data/KRX_KOSPI200_components
+*.pickle
+*.csv
+*.parquet
+*.xls
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
