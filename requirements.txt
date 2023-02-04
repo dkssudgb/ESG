@@ -1,10 +1,19 @@
-pandas
+os
+glob
+
 numpy
+pandas
 matplotlib
-
-plotly
 seaborn
-streamlit
+plotly
 
+requests
+beautifulsoup4
+
+streamlit
 finance-datareader
 koreanize_matplotlib
+
+
+tqdm
+xmltodict
