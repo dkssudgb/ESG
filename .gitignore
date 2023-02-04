@@ -1,8 +1,10 @@
 #
 gitig*
 /gitig*/
+/data/KOSPI_200
+/data/KRX_KOSPI200_components
 *.pickle
-*.csv
+# *.csv
 *.parquet
 *.xls
 
