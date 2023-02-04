@@ -37,6 +37,68 @@ def six_digit(x):
         return "%06d" % x
 
 
+def DerivedCol_Date(df, col_YMD="연_월_일", inplace=False, Sep="-"):
+
+    if inplace:
+        df_ = df
+    else:
+        df_ = df.copy()
+
+    if df_[col_YMD].dtypes != "datetime64[ns]":
+        df_[col_YMD] = pd.to_datetime(df_[col_YMD])
+
+    df_["연"] = df_[col_YMD].dt.year
+    df_["분기"] = df_[col_YMD].dt.quarter
+    df_["월"] = df_[col_YMD].dt.month
+    df_["일"] = df_[col_YMD].dt.day
+
+    sY = df_["연"].astype("str")
+    sQ = df_["분기"].astype("str")
+    sM = df_["월"].astype("str")
+    sD = df_["일"].astype("str")
+
+    df_["연_분기"] = sY + Sep + sQ
+    df_["연_월"] = sY + Sep + sM
+    df_["분기_월"] = sQ + Sep + sM
+    df_["월_일"] = sM + Sep + sD
+
+    df_["연_분기_월"] = sY + Sep + sQ + Sep + sM
+
+    if inplace:
+        print(inplace)
+
+    return df_
+
+
+def DerivedCol_Groupby_MinMaxScaler(
+    df: pd.DataFrame, col_groupby: list, col_mmScl: list, inplace=False
+):
+    """
+    refer : https://stackoverflow.com/questions/69476352/sklearn-minmaxscaler-with-groupby-pandas
+    """
+    from sklearn.preprocessing import MinMaxScaler
+
+    if inplace:
+        df_ = df
+    else:
+        df_ = df.copy()
+
+    def agg(x):
+
+        col_name = []
+        for i in col_mmScl:
+            col_name.append(f"{i}_mmscl")
+
+        scaler = MinMaxScaler()
+        x[col_name] = scaler.fit_transform(x[col_mmScl])
+
+        return x
+
+    df_ = df_.groupby(col_groupby).apply(agg)
+
+    return df_
+
+
 def print_title(body, br=2, bp="┌▣ ", hr=" ---- ---- ---- ----"):
 
     """
@@ -197,7 +259,18 @@ def DataLoad(file: str):
             df = reduce_mem_usage(pd.read_pickle(file))
 
         if "csv" == ff:
-            df = reduce_mem_usage(pd.read_csv(file, index_col=False))
+            try:
+                df = reduce_mem_usage(pd.read_csv(file, index_col=False))
+            except:
+                df = reduce_mem_usage(pd.read_csv(file, index_col=False, encoding="cp949"))
+            pp = {
+                "종목코드": ".astype(str).apply(six_digit)",
+                "stock_code": ".astype(str).apply(six_digit)",
+            }
+            col = df.columns.to_list()
+            for i in pp.keys():
+                if i in col:
+                    df[i] = eval(f"df[{i}]{pp[i]}")
 
             # df["종목코드"] = df["종목코드"].astype(str).apply(six_digit)
             # df["stock_code"] = df["stock_code"].astype(str).apply(six_digit)
