@@ -3,6 +3,8 @@ glob
 
 numpy
 pandas
+fastparquet
+
 matplotlib
 seaborn
 plotly

@@ -1,3 +1,4 @@
+import warnings
 from pprint import pprint
 from glob import glob
 
@@ -10,7 +11,7 @@ import seaborn as sns
 def File_Path(
     data_path: str = "../data/",
     file_format: list = [".parquet"],
-    file_list: list = ["esgRating", "stockPrice", "finaStat", "stockPrice_year"],
+    file_list: list = ["esgRating", "stockPrice", "finaStat", "indexPrice"],
 ):
 
     globals()["data_path"] = "../data/"
@@ -37,35 +38,39 @@ def six_digit(x):
         return "%06d" % x
 
 
-def DerivedCol_Date(df, col_YMD="연_월_일", inplace=False, Sep="-"):
+def DerivedCol_Date(df, col_YMD="연_월_일", col_deri=["연", "분기", "월", "일"], inplace=False, Sep="-"):
 
     if inplace:
         df_ = df
+        print("inplace :", inplace)
     else:
         df_ = df.copy()
 
     if df_[col_YMD].dtypes != "datetime64[ns]":
         df_[col_YMD] = pd.to_datetime(df_[col_YMD])
 
-    df_["연"] = df_[col_YMD].dt.year
-    df_["분기"] = df_[col_YMD].dt.quarter
-    df_["월"] = df_[col_YMD].dt.month
-    df_["일"] = df_[col_YMD].dt.day
+    with warnings.catch_warnings(record=False):
+        if inplace:
+            warnings.simplefilter("ignore")
 
-    sY = df_["연"].astype("str")
-    sQ = df_["분기"].astype("str")
-    sM = df_["월"].astype("str")
-    sD = df_["일"].astype("str")
+        df_[col_deri[0]] = df_[col_YMD].dt.year
+        df_[col_deri[1]] = df_[col_YMD].dt.quarter
+        df_[col_deri[2]] = df_[col_YMD].dt.month
 
-    df_["연_분기"] = sY + Sep + sQ
-    df_["연_월"] = sY + Sep + sM
-    df_["분기_월"] = sQ + Sep + sM
-    df_["월_일"] = sM + Sep + sD
+        sY = df_[col_deri[0]].astype("str")
+        sQ = df_[col_deri[1]].astype("str")
+        sM = df_[col_deri[2]].astype("str")
 
-    df_["연_분기_월"] = sY + Sep + sQ + Sep + sM
+        df_[f"{col_deri[0]}_{col_deri[1]}"] = sY + Sep + sQ
+        df_[f"{col_deri[0]}_{col_deri[2]}"] = sY + Sep + sM
+        df_[f"{col_deri[1]}_{col_deri[2]}"] = sQ + Sep + sM
 
-    if inplace:
-        print(inplace)
+        df_[f"{col_deri[0]}_{col_deri[1]}_{col_deri[2]}"] = sY + Sep + sQ + Sep + sM
+
+        if col_YMD == "연_월_일":
+            df_[col_deri[3]] = df_[col_YMD].dt.day
+            sD = df_[col_deri[3]].astype("str")
+            df_[f"{col_deri[2]}_{col_deri[3]}"] = sM + Sep + sD
 
     return df_
 
@@ -80,6 +85,7 @@ def DerivedCol_Groupby_MinMaxScaler(
 
     if inplace:
         df_ = df
+        print("inplace :", inplace)
     else:
         df_ = df.copy()
 
@@ -94,7 +100,11 @@ def DerivedCol_Groupby_MinMaxScaler(
 
         return x
 
-    df_ = df_.groupby(col_groupby).apply(agg)
+    with warnings.catch_warnings(record=False):
+        if inplace:
+            warnings.simplefilter("ignore")
+
+        df_ = df_.groupby(col_groupby).apply(agg)
 
     return df_
 
@@ -245,7 +255,6 @@ def DataLoad(file: str):
     데이터를불러올 때 사용할 함수
     csv 포맷의 데이터의 경우 단순한한 전처리를 실행함.
     """
-
     fd = "/".join(file.split("/")[:-1])
     fn = "".join(file.split("/")[-1].split(".")[:-1])
     ff = file.split("/")[-1].split(".")[-1]
@@ -259,28 +268,30 @@ def DataLoad(file: str):
             df = reduce_mem_usage(pd.read_pickle(file))
 
         if "csv" == ff:
+
             try:
                 df = reduce_mem_usage(pd.read_csv(file, index_col=False))
             except:
                 df = reduce_mem_usage(pd.read_csv(file, index_col=False, encoding="cp949"))
+
             pp = {
-                "종목코드": ".astype(str).apply(six_digit)",
-                "stock_code": ".astype(str).apply(six_digit)",
+                "종목코드": ".apply(six_digit)",
+                "stock_code": ".apply(six_digit)",
             }
+
             col = df.columns.to_list()
             for i in pp.keys():
                 if i in col:
-                    df[i] = eval(f"df[{i}]{pp[i]}")
-
-            # df["종목코드"] = df["종목코드"].astype(str).apply(six_digit)
-            # df["stock_code"] = df["stock_code"].astype(str).apply(six_digit)
+                    e = f"""df["{i}"]{pp[i]}"""
+                    print(e)
+                    df[i] = eval(e)
 
         Check_df(df)
 
         return df
 
     else:
-        print("file not found")
+        raise Exception("file not found")
 
 
 def DfPrst(df: pd.DataFrame, file: str = "../data/temp", *format: str):
@@ -319,7 +330,7 @@ def DfPrst(df: pd.DataFrame, file: str = "../data/temp", *format: str):
 
     if "parquet" in format:
         f = file + ".parquet"
-        df.to_parquet(f, index=False)
+        df.to_parquet(f, index=False, engine="fastparquet")
         p += glob(f)
 
     pprint(p)
