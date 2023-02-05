@@ -5,7 +5,7 @@ gitig*
 /data/KRX_KOSPI200_components
 *.pickle
 *.csv
-*.parquet
+# *.parquet
 *.xls
 
 # Byte-compiled / optimized / DLL files
