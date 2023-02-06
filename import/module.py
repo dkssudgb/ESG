@@ -15,8 +15,10 @@ def File_Path(
 ):
 
     globals()["data_path"] = "../data/"
+
     global fp
-    fp = {}
+    fp = {"components": f"{data_path}components_list.csv"}
+
     if len(file_format) == 1:
         file_format = file_format * len(file_list)
 
@@ -38,7 +40,14 @@ def six_digit(x):
         return "%06d" % x
 
 
-def DerivedCol_Date(df, col_YMD="연_월_일", col_deri=["연", "분기", "월", "일"], inplace=False, Sep="-"):
+def DerivedCol_Date(
+    df,
+    col_YMD="연_월_일",
+    col_YMD_fotmat="%Y_%M_%D",
+    col_deri=["연", "분기", "월", "일"],
+    inplace=False,
+    Sep="-",
+):
 
     if inplace:
         df_ = df
@@ -53,9 +62,13 @@ def DerivedCol_Date(df, col_YMD="연_월_일", col_deri=["연", "분기", "월",
         if inplace:
             warnings.simplefilter("ignore")
 
-        df_[col_deri[0]] = df_[col_YMD].dt.year
-        df_[col_deri[1]] = df_[col_YMD].dt.quarter
-        df_[col_deri[2]] = df_[col_YMD].dt.month
+        df_[col_deri[0]] = df_[col_YMD].dt.year.astype("uint16")
+        df_[col_deri[1]] = df_[col_YMD].dt.quarter.astype("uint8")
+        df_[col_deri[2]] = df_[col_YMD].dt.month.astype("uint8")
+
+        if "%D" in col_YMD_fotmat:
+            df_[col_deri[3]] = df_[col_YMD].dt.day.astype("uint8")
+            sD = df_[col_deri[3]].astype("str")
 
         sY = df_[col_deri[0]].astype("str")
         sQ = df_[col_deri[1]].astype("str")
@@ -65,12 +78,10 @@ def DerivedCol_Date(df, col_YMD="연_월_일", col_deri=["연", "분기", "월",
         df_[f"{col_deri[0]}_{col_deri[2]}"] = sY + Sep + sM
         df_[f"{col_deri[1]}_{col_deri[2]}"] = sQ + Sep + sM
 
-        df_[f"{col_deri[0]}_{col_deri[1]}_{col_deri[2]}"] = sY + Sep + sQ + Sep + sM
-
-        if col_YMD == "연_월_일":
-            df_[col_deri[3]] = df_[col_YMD].dt.day
-            sD = df_[col_deri[3]].astype("str")
+        if "%D" in col_YMD_fotmat:
             df_[f"{col_deri[2]}_{col_deri[3]}"] = sM + Sep + sD
+
+        df_[f"{col_deri[0]}_{col_deri[1]}_{col_deri[2]}"] = sY + Sep + sQ + Sep + sM
 
     return df_
 
@@ -263,6 +274,8 @@ def DataLoad(file: str):
 
         if "parquet" == ff:
             df = reduce_mem_usage(pd.read_parquet(file))
+
+            pp = {}
 
         if "pickle" == ff:
             df = reduce_mem_usage(pd.read_pickle(file))

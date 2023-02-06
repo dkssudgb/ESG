@@ -8,7 +8,13 @@ gitig*
 *.parquet
 *.xls
 *.zip
-!stockPrice_year.parquet
+
+# 예외
+!esgRating.parquet
+!finaStat.parquet
+!indexPrice.parquet
+!stockPrice.parquet
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
