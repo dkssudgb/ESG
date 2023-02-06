@@ -261,7 +261,7 @@ def reduce_mem_usage(df: pd.DataFrame, verbose: bool = True, to_num: bool or lis
     return df
 
 
-def DataLoad(file: str):
+def DataLoad(file: str, reduce_mem=True):
     """
     데이터를불러올 때 사용할 함수
     csv 포맷의 데이터의 경우 단순한한 전처리를 실행함.
@@ -273,19 +273,19 @@ def DataLoad(file: str):
     if glob(f"{file}"):
 
         if "parquet" == ff:
-            df = reduce_mem_usage(pd.read_parquet(file))
+            df = pd.read_parquet(file)
 
             pp = {}
 
         if "pickle" == ff:
-            df = reduce_mem_usage(pd.read_pickle(file))
+            df = pd.read_pickle(file)
 
         if "csv" == ff:
 
             try:
-                df = reduce_mem_usage(pd.read_csv(file, index_col=False))
+                df = pd.read_csv(file, index_col=False)
             except:
-                df = reduce_mem_usage(pd.read_csv(file, index_col=False, encoding="cp949"))
+                df = pd.read_csv(file, index_col=False, encoding="cp949")
 
             pp = {
                 "종목코드": ".apply(six_digit)",
@@ -301,7 +301,10 @@ def DataLoad(file: str):
 
         Check_df(df)
 
-        return df
+        if reduce_mem:
+            return reduce_mem_usage(df)
+        else:
+            return df
 
     else:
         raise Exception("file not found")
