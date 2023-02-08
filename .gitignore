@@ -7,6 +7,14 @@ gitig*
 *.csv
 *.parquet
 *.xls
+*.zip
+
+# 예외
+!esgRating.parquet
+!finaStat.parquet
+!indexPrice.parquet
+!stockPrice.parquet
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
