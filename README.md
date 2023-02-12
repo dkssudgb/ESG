@@ -57,14 +57,37 @@
 |C|1|
 |D|0|
 
+
+
+<img src="https://user-images.githubusercontent.com/115917627/218307832-93ad021c-9401-47cd-ac8e-ec5926ec43b1.png" weight="200" height="400">
+
 - 2011년~2018년 기준, ESG종합 등급별 평균 기업체 수 확인
    - 분석한 기간 중 **대다수의 기업체가 B등급으로 약 80%의 비중을 차지**했다.
 
-## **KOSPI200 지수**와 **KOSPI200 ESG 지수** 비교
+<img src="https://user-images.githubusercontent.com/115917627/218308608-10ec4755-d8e7-4476-9c89-115eb7e71b31.png" weight="200" height="400">
 
-<img src="https://user-images.githubusercontent.com/115917627/215096247-b7a7439c-6b2e-4d69-b4f8-190b0a8f74bc.png" weight="200" height="400">
+- 2011년~2018년 기준, ESG종합 등급 추이
+   - ESG종합 등급을 받는 기업체 수는 매년 증가 추세를 보이며, **매년 ESG종합 등급에서 B등급을 받은 기업체 수가 많다**는 것을 알 수 있다.
 
-- 연도별 종가 비교 : KOSPI200 ESG 종가를 산출하기 시작한 2019년 기준으로 보면 두 지수의 변화 추이는 비슷하지만 ESG 평가를 추가한 ESG 지수가 더 높은 종가를 보여주고 있는데, 이는 코스피200ESG지수가 상대적으로 우량한 기업의 영향을 더 받기 때문으로 보인다.
+<img src="https://user-images.githubusercontent.com/115917627/218308567-e45b0425-619f-4422-bc94-280c01b528a3.png" weight="200" height="400">
+
+- 2011년~2018년 기준, E(환경) 등급 추이
+   - 매년 E(환경) 등급에서 B등급을 받은 기업체 수가 많으며, **2017년 유일하게 S등급을 받은 기업체 1곳이 등장**했다. 
+
+<img src="https://user-images.githubusercontent.com/115917627/218308718-a1d01a03-6f3e-47bc-b6f9-49b5e55a3f71.png" weight="200" height="400">
+
+- 2011년~2018년 기준, S(사회적구조) 등급 추이
+   - 매년 E(환경) 등급에서 B등급을 받은 기업체 수가 많으며, **2017년 유일하게 S등급을 받은 기업체 1곳이 등장**했다. 
+
+<img src="https://user-images.githubusercontent.com/115917627/218308719-07b625ee-5867-4247-98bb-e685cd8c71d1.png" weight="200" height="400">
+
+- 2011년~2018년 기준, G(지배구조) 등급 추이
+   - 매년 G(지배구조) 등급에서 **B등급을 받은 기업체 수가 많다**. 
+
+## 2-3 KOSPI 200 지수와 KOSPI 200 ESG 지수
+<img src="https://user-images.githubusercontent.com/115917627/218308929-01a98bb8-1660-4912-b8b3-50613ff54412.png" weight="200" height="400">
+
+-연도별 종가 비교 : KOSPI200 ESG 종가를 산출하기 시작한 2019년 기준으로 보면 두 지수의 변화 추이는 비슷하지만 ESG 평가를 추가한 ESG 지수가 더 높은 종가를 보여주고 있는데, 이는 코스피200ESG지수가 상대적으로 우량한 기업의 영향을 더 받기 때문으로 보인다.
  
 <img src="https://user-images.githubusercontent.com/115917627/215096480-c14b24ec-b7f9-4515-a2e0-027f385c3fcb.png" weight="200" height="400">
 
@@ -74,34 +97,76 @@
 
 - 연도별 거래량 비교: 두 지수의 변화 추이는 비슷한 것으로 보입니다.
 
-## **ESG 평가**와 **기업 주가** 비교
+## 2-4 연도, ESG 등급별 주가 분석
+### 대체로 등급이 높을 때 주가가 높은 것으로 보이는데, 상대적으로 ESG가 관심이 높은 시기인 2017년 이후 더 경향이 큰 것으로 보인다.
 
-<img src="https://user-images.githubusercontent.com/115917627/215100517-1732ef36-6e72-4f02-95ae-bff03cc6675f.png" weight="200" height="300">
+- ESG종합 등급
 
-- 환경에 대한 기업들의 관심은 이전에도 높은 편이였기 때문에 ESG 평가 초기에도 높은 등급을 유지하다 잠시 주춤한 뒤 전체적으로 등급이 상승하는 모습을 보여주고 있습니다.
+<img src="https://user-images.githubusercontent.com/115917627/218309165-6f93bb8c-2e33-4f6e-8b02-1be560ede67c.png" weight="200" height="300">
 
-<img src="https://user-images.githubusercontent.com/115917627/215100541-16cd7244-5813-49b3-b513-b1255b59cbe8.png" weight="200" height="300">
+- E(환경) 등급
 
-- 사회적 책임에 대한 기업 등급 분포를 확인해보면 ESG 평가 초기에는 낮은 등급을 유지하다 2015년을 기점으로 상승하는 모습을 볼 수 있습니다.
+<img src="https://user-images.githubusercontent.com/115917627/218309168-d0b31680-dd63-4aa2-bfb6-753993eb688a.png" weight="200" height="300">
 
-<img src="https://user-images.githubusercontent.com/115917627/215100568-4cea7313-229f-4bb8-b7cd-675ddcd5d4e8.png" weight="200" height="300">
+- S(사회적구조) 등급
 
-- 지배구조 역시 ESG 평가 초기에는 기업들이 크게 등급에 신경을 쓰지 않았지만 코스피 200 ESG 지수를 산출하기 시작한 2019년부터 급상승하는 모습을 볼 수 있습니다.
+<img src="https://user-images.githubusercontent.com/115917627/218309173-307b82d8-3d74-416a-914b-b8f354646ce1.png" weight="200" height="300">
 
-<img src="https://user-images.githubusercontent.com/115917627/215100490-4dd7c6cf-0245-4289-b307-fc724852a06e.png" weight="200" height="300">
+- G(지배구조) 등급
 
-- ESG 각각 등급에서 공통적인 특징은 ESG 평가를 도입한 직후에는 상대적으로 낮은 등급의 비율이 높았는데 ESG 관심이 높아지기 시작한 최근 데이터를 보면 높은 등급의 평가가 높은 비중을 차지하고 있는 것을 볼 수 있습니다.
+<img src="https://user-images.githubusercontent.com/115917627/218309181-8261f541-4663-4f69-8a5b-792586ce4083.png" weight="200" height="300">
 
-## data 폴더의 파일 설명
-- ESG_KOSPI200_ca.csv : 코스피200 기업들의 연도별 ESG등급
-- KOSPI200.csv : 코스피200 지수
-- KOSPI200_ESG.csv : 코스피200 기업의 ESG 지수
-- KOSPI_ESG_MERGE.csv : 코스피200 지수와 코스피200 기업의 ESG 지수 데이터를 병합
-- ESG_KOSPI200_ca.csv : 코스피200 기업의 ESG 등급
+## 2-5 연도, ESG 등급별 재무제표 분석
+### 매출과 영업이익 등 높은 등급(A+, A)의 경우가 더 높은 것으로 보인다.
 
-## 참고자료
-- https://esg.krx.co.kr/contents/02/02020000/ESG02020000.jsp
-- http://www.cgs.or.kr/business/esg_tab01.jsp
-- http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201010105&idxCd=1&idxCd2=180
-- http://data.krx.co.kr/contents/MDC/HARD/hardController/MDCHARD050.cmd#none
-- http://www.cgs.or.kr/business/esg_tab04.jsp?pg=%7B%7D&pp=10&skey=&svalue=&sfyear=2021&styear=2021&sgtype=&sgrade=#ui_contents
+- 매출
+
+<img src="https://user-images.githubusercontent.com/115917627/218309407-a236d200-5389-4640-91a3-cb7798e4b272.png" weight="400" height="400">
+
+- 영업이익
+
+<img src="https://user-images.githubusercontent.com/115917627/218309413-3f72c692-8873-462f-bee2-50c33a51add8.png" weight="400" height="400">
+
+### 종목 별로 Min-Max 스케일링 적용
+- 하지만, 종목 별로 MinMax 스케일링을 적용한 데이터로 보았을 때, 차이는 미미한 것으로 보여,
+위의 경우는 높은 등급에 상대적으로 큰 규모의 회사들이 많이 분포하여 나타난 것으로 보인다.
+
+- 매출
+
+<img src="https://user-images.githubusercontent.com/115917627/218309412-e7c17ec4-b7b0-4a89-9295-569a4ae6b0e1.png" weight="400" height="400">
+
+- 영업이익
+
+<img src="https://user-images.githubusercontent.com/115917627/218309411-aba1d883-4e9e-4bee-b3e2-9976fcf7ac52.png" weight="400" height="400">
+
+## 2-6 연도, ESG 등급별 주가, 재무제표 상관계수
+
+<img src="https://user-images.githubusercontent.com/115917627/218309409-477291d1-1007-487e-8d6c-204c6fc024a7.png" weight="400" height="600">
+
+## 3 결론
+
+## 3-1 분석 결과
+- 연도별 ESG종합 등급을 분석했을 때, 매년 기업체 수가 증가하는 것으로 보아 기업들의 ESG 활동에 대한 관심이 커지고 있는 것으로 보인다.
+- 연도별, ESG등급별 주가를 분석했을 때, 대체로 높은 ESG등급을 받은 경우에 주가도 높게 나타나는 경향이 있다.
+- 연도별, ESG등급별 재무제표를 분석했을 때, ESG등급과 재무제표는 상관성이 없는 것으로 보인다.
+
+## 3-2 한계점
+- 주가 데이터에는 각 종목에 대해 일일 주가가 담겨있는 반면, ESG등급은 연 단위로 산출된다. 그래서 두 데이터를 비교하기 위한 기준을 맞추기 어려웠다. 
+   -  구체적으로, 주가 데이터의 연평균 가격을 이용할지, ESG등급이 발표된 날을 기준으로 그 날의 주가 데이터(종가)를 이용할지 고민이 되었다.
+   -  강사님의 피드백을 받은 후, 각 주가 데이터마다 그 해의 ESG등급을 추가하여 비교하기로 결정했다.
+- KOSPI 200으로 선정된 기업 중 일부 기업만 추출해서 시각화를 진행하려고 했는데, 어떤 기준으로 표본을 정해야 하는지 힘들었다. 또한, 너무 적은 표본으로 데이터를 분석하면 의미 없는 데이터 분석 결과가 나올 것이라 판단되어 모든 기업의 연도별 종가, 거래량의 평균을 구해 수치화 한 뒤 전체 결과를 시각화 하기로 결정했다.
+
+## 부록
+
+## 4-1 출처
+
+[KRX 정보데이터시스템](https://data.krx.co.kr/contents/MDC/HARD/hardController/MDCHARD050.cmd#none)
+[금융감독원 고유번호](https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019018)
+[금융감독원 공시정보 기업개황](https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019002)
+[금융위원회 기업 재무정보](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15043459)
+
+## 4-2 참고
+https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002876301
+https://www.kyungnam.ac.kr/riim/5339/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGcmlpbSUyRjg5MCUyRjk1NzIwJTJGYXJ0Y2xWaWV3LmRvJTNGcGFnZSUzRDElMjZzcmNoQ29sdW1uJTNEJTI2c3JjaFdyZCUzRCUyNmJic0NsU2VxJTNEJTI2YmJzT3BlbldyZFNlcSUzRCUyNnJnc0JnbmRlU3RyJTNEJTI2cmdzRW5kZGVTdHIlM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZwYXNzd29yZCUzRCUyNg%3D%3D
+https://www.ey.com/en_gl/assurance/is-your-esg-data-unlocking-long-term-value
+http://www.cgs.or.kr/business/esg_tab01.jsp
