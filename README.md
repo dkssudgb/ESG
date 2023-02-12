@@ -9,26 +9,56 @@
 |<span style="color:blue">[노나은](https://github.com/better-noh)|데이터 수집 · 전처리 · 시각화(ESG 평가등급, 네이버 ESG 관련 뉴스기사)| 
 |<span style="color:blue">이주민|데이터 수집 · 전처리 · 시각화(코스피200), PPT|
 
-## 주제 선정 이유
-<img src="https://user-images.githubusercontent.com/115917627/215085827-099c5fe3-cf75-4bb8-8994-3704188a7ac0.png" weight="1000" height="400">
+## 1-1 주제
+### KCGS의 ESG등급을 통한 주가지수와 개별종목의 주가, 재무제표 분석
 
-```
-과거에는 기업들이 돈을 얼마나 벌 수 있는지를 중점에 두고 투자를 하거나 기업을 평가 해왔습니다. 하지만 최근 기상이변이나 코로나19 같이 
-돈으로 환산하기 힘들고 예상하기 어려운 위기상황에 기업이 대처할 수 있는 능력을 파악하기 위해 ESG 등급을 기준으로 평가하고 있습니다.
-저희 팀에서는 한국 ESG 기준원과 KRX 정보데이터시스템에서 기업의 ESG 평가등급을 가져와 코스피200 지수,기업의 주가데이터와 비교해
-ESG 등급이 기업을 평가하는데 적절한지 알아보기 위해 주제를 선정하였습니다.
-```
-## 프로젝트 활용 방안
-- 기업들의 ESG 평가 등급 개선을 유도하는 하나의 기준으로써 활용
-- 취업준비생이 지원하는 기업의 미래 가치를 평가하는 데 활용
-- 투자자들에게 투자 기업의 미래 주가 흐름을 예측할 수 있는 지표로 활용
+## 1-2 주제 선정 이유
+<img src="https://user-images.githubusercontent.com/115917627/218306160-7e9a4133-41b5-41cd-9c55-fd9b98cd90f4.png" weight="1000" height="400">
 
-## 가설 설정
-**ESG가 기업의 가치 평가에 적절한가**
+- 최근 ESG 관련 지표에 관심을 가지는 기업과 투자자들이 많아지는 추세이며, 다양한 연구를 통해 **ESG가 기업의 지속가능성 및 장기적인 가치 창출을 평가하는 중요한 기준**이 된다고 보고있다.
+- ESG 평가 등급과 다른 평가 지표와의 비교를 통해 인사이트를 도출해보기 위해 주제를 선정하였습니다.
 
-- **KOSPI200 지수**와 **KOSPI200 ESG 지수** 비교
+## 1-3 ESG등급 관련 선행 연구
+### 황성준 and 오상희. (2021). [코스피 200 ESG 지수의 종목변경에 대한 시장반응](https://www.kyungnam.ac.kr/riim/5339/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGcmlpbSUyRjg5MCUyRjk1NzIwJTJGYXJ0Y2xWaWV3LmRvJTNGcGFnZSUzRDElMjZzcmNoQ29sdW1uJTNEJTI2c3JjaFdyZCUzRCUyNmJic0NsU2VxJTNEJTI2YmJzT3BlbldyZFNlcSUzRCUyNnJnc0JnbmRlU3RyJTNEJTI2cmdzRW5kZGVTdHIlM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZwYXNzd29yZCUzRCUyNg%3D%3D). 지역산업연구, 44(4), 241-262.
+- 위 연구는 한국거래소(KRX) 코스피 200 ESG 지수 편입과 퇴출에 대한 주가반응 분석하였다.
+- 기업의 평균초과수익률과 코스피 200 ESG 지수 구성종목편입 유무를 보았을 때, 편입의 경우 유의한 양의 관계를 나타낸 반면, 퇴출은 음의 관계를 나타냈다.
+- 본 연구에서는 ESG 성과에 대한 시장의 부정적인 인식 전환과 기업들의 ESG 개선 활동 유도를 기대하였다.
 
-- **ESG 평가**와 **기업 주가** 비교
+### 황성준. (2022). [기업의 ESG 활동과 주가동조성](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002876301). 전산회계연구, 20(2), 83-101.
+- 위의 연구에서는 2018년~2021년의 코스피, 코스닥의 12월 결산기업을 연구표본으로 설정하여 ESG 활동 성과와 시장수익률 및 산업수익률의 변동성의 영향 관계에 대해 실증분석하였다.
+- 기업의 ESG 활동은 주가동조성과 유의한 양(＋)의 관련성이 있고, ESG 활동 기업은 개별기업의 고유정보가 주가에 충분히 반영되어 정보효율성이 높았다.
+- ESG를 수행하는 기업은 주가에 충분한 정보가 반영된 것으로 보았다.
+
+## 2 분석
+## 2-1 활용 데이터
+|이름|설명|Method|Source|
+|:---:|:---|:---:|:---|
+|KCGS ESG Rating|한국ESG기준원 ESG등급 데이터</br>- 기간 : 2011년~2018년|Web Scraping|[KRX 정보데이터시스템](http://data.krx.co.kr/contents/MDC/HARD/hardController/MDCHARD050.cmd#none)|
+|KRX KOSPI 200 Index Components|KRX KOSPI 200 지수 구성종목 정보</br>- 기간 : 2010-06-30~2018-06-31</br>- 매년 06월 말일과 12월 말일에 대한 데이터|Download|[KRX 정보데이터시스템](http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201010106)|
+|KRX KOSPI 200 Index Components</br>Stock Price|한국ESG기준원 ESG등급 데이터</br>- 기간 : 2011년~2018년|API|[FinanceDataReader](https://github.com/financedata-org/FinanceDataReader)|
+|DART corpCode|금융감독원 고유번호|API|[금융감독원 고유번호](https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019018)|
+|DART company|금융감독원 공시정보 기업개황|API|[금융감독원 공시정보 기업개황](https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019002)|
+|FSC FinaStatInfo|금융위원회 기업재무정보 (요약재무제표)</br>- 기간 : 2011년~2018년|API|[금융위원회 기업 재무정보](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15043459)|
+|KRX KOSPI 200 Index Price|한국거래소 KOSPI 200 지수 가격 데이터</br>- 기간 : 2011년~2018년|Download|[KRX 정보데이터시스템](http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201010105)|
+|KRX KOSPI 200 ESG Index Price|한국거래소 KOSPI 200 ESG 지수 가격 데이터</br>- 기간 : 2010-06-31~2022-06-31|Download|[KRX 정보데이터시스템](http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201010105)|
+
+- 표본
+   - 2011년~2018년 KOSPI200 지수에 구성된 적이 있는 종목(기업)이면서
+   - KCGS에서 ESG등급 평가된 적이 있는 종목
+   
+## 2-2 ESG 등급
+|ESG 등급|ESG 등급 인코딩|
+|:---|:---|
+|S|6|
+|A+|5|
+|A|4|
+|B+|3|
+|B|2|
+|C|1|
+|D|0|
+
+- 2011년~2018년 기준, ESG종합 등급별 평균 기업체 수 확인
+   - 분석한 기간 중 **대다수의 기업체가 B등급으로 약 80%의 비중을 차지**했다.
 
 ## **KOSPI200 지수**와 **KOSPI200 ESG 지수** 비교
 
