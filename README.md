@@ -92,8 +92,6 @@
 <img src="https://user-images.githubusercontent.com/115917627/215096480-c14b24ec-b7f9-4515-a2e0-027f385c3fcb.png" weight="200" height="400">
 
 - 연도별 등락률 비교: 두 지수간의 등락률 또한 매우 유사하게 움직이는 것으로 보인다.
- 
-<img src="https://user-images.githubusercontent.com/115917627/215096655-fa8e5536-0bda-4987-871e-c66c6709bd19.png" weight="200" height="400">
 
 
 ## 2-4 연도, ESG 등급별 주가 분석
