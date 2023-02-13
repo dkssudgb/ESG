@@ -87,15 +87,14 @@
 ## 2-3 KOSPI 200 지수와 KOSPI 200 ESG 지수
 <img src="https://user-images.githubusercontent.com/115917627/218308929-01a98bb8-1660-4912-b8b3-50613ff54412.png" weight="200" height="400">
 
-- 연도별 종가 비교 : KOSPI200 ESG 종가를 산출하기 시작한 2019년 기준으로 보면 두 지수의 변화 추이는 비슷하지만 ESG 평가를 추가한 ESG 지수가 더 높은 종가를 보여주고 있는데, 이는 코스피200ESG지수가 상대적으로 우량한 기업의 영향을 더 받기 때문으로 보인다.
+- 연도별 종가 비교 : KOSPI 200 지수와 KOSPI 200 ESG 지수의 종가가 거의 유사하게 나타나는 것을 볼 수 있다. 이는 KOSPI 200 ESG 지수가 KOSPI 200 기업들 중 ESG 등급이 우수한 기업들을 기준으로 산출했기 때문으로 보인다.
  
 <img src="https://user-images.githubusercontent.com/115917627/215096480-c14b24ec-b7f9-4515-a2e0-027f385c3fcb.png" weight="200" height="400">
 
-- 연도별 등락률 비교: 두 지수간의 등락률은 매우 유사하게 움직이는 것으로 보인다.
+- 연도별 등락률 비교: 두 지수간의 등락률 또한 매우 유사하게 움직이는 것으로 보인다.
  
 <img src="https://user-images.githubusercontent.com/115917627/215096655-fa8e5536-0bda-4987-871e-c66c6709bd19.png" weight="200" height="400">
 
-- 연도별 거래량 비교: 두 지수의 변화 추이는 비슷한 것으로 보입니다.
 
 ## 2-4 연도, ESG 등급별 주가 분석
 ### 대체로 등급이 높을 때 주가가 높은 것으로 보이는데, 상대적으로 ESG가 관심이 높은 시기인 2017년 이후 더 경향이 큰 것으로 보인다.
