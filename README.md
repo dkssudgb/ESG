@@ -89,7 +89,7 @@
 
 - 연도별 종가 비교 : KOSPI 200 지수와 KOSPI 200 ESG 지수의 종가가 거의 유사하게 나타나는 것을 볼 수 있다. 이는 KOSPI 200 ESG 지수가 KOSPI 200 기업들 중 ESG 등급이 우수한 기업들을 기준으로 산출했기 때문으로 보인다.
  
-<img src="https://user-images.githubusercontent.com/115917627/215096480-c14b24ec-b7f9-4515-a2e0-027f385c3fcb.png" weight="200" height="400">
+<img src="https://user-images.githubusercontent.com/115577097/218638003-f22367a5-00fa-4447-900d-eba017741fad.png" weight="200" height="400">
 
 - 연도별 등락률 비교: 두 지수간의 등락률 또한 매우 유사하게 움직이는 것으로 보인다.
 
